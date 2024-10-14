@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SessionController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +29,10 @@ Route::get('/home', function(){
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/admin', [UserController::class, 'index'])->middleware('UserAkses:admin');
-    Route::get('/admin/user', [UserController::class, 'user'])->middleware('UserAkses:user');
+    Route::get('/admin', [DashboardController::class, 'index'])->middleware('UserAkses:admin');
+    Route::get('/admin/dashboard', [DashboardController::class, 'index'])->middleware('UserAkses:admin');
+    Route::get('/admin/user', [SessionController::class, 'user'])->middleware('UserAkses:user');
     Route::get('/logout', [LoginController::class, 'logout']);
 });
+
+
