@@ -55,76 +55,7 @@
                                     <td>Remote</td>
                                     <td>
                                         <div class="form-button-action">
-                                            <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-simple-primary" data-original-title="Edit Task">
-                                                <i class="fa fa-edit"></i>
-                                            </button>
-                                            <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-simple-danger" data-original-title="Remove">
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="text-bold-500">2</td>
-                                    <td class="text-bold-500">Morgan Vanblum</td>
-                                    <td>$13/hr</td>
-                                    <td class="text-bold-500">Graphic concepts</td>
-                                    <td>Remote</td>
-                                    <td>
-                                        <div class="form-button-action">
-                                            <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-simple-primary" data-original-title="Edit Task">
-                                                <i class="fa fa-edit"></i>
-                                            </button>
-                                            <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-simple-danger" data-original-title="Remove">
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="text-bold-500">3</td>
-                                    <td class="text-bold-500">Tiffani Blogz</td>
-                                    <td>$15/hr</td>
-                                    <td class="text-bold-500">Animation</td>
-                                    <td>Remote</td>
-                                    <td>
-                                        <div class="form-button-action">
-                                            <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-simple-primary" data-original-title="Edit Task">
-                                                <i class="fa fa-edit"></i>
-                                            </button>
-                                            <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-simple-danger" data-original-title="Remove">
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="text-bold-500">4</td>
-                                    <td class="text-bold-500">Ashley Boul</td>
-                                    <td>$15/hr</td>
-                                    <td class="text-bold-500">Animation</td>
-                                    <td>Remote</td>
-                                    <td>
-                                        <div class="form-button-action">
-                                            <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-simple-primary" data-original-title="Edit Task">
-                                                <i class="fa fa-edit"></i>
-                                            </button>
-                                            <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-simple-danger" data-original-title="Remove">
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="text-bold-500">5</td>
-                                    <td class="text-bold-500">Mikkey Mice</td>
-                                    <td>$15/hr</td>
-                                    <td class="text-bold-500">Animation</td>
-                                    <td>Remote</td>
-                                    <td>
-                                        
-                                        <div class="form-button-action">
-                                            <a href="">
+                                            <a href="{{ route('server.edit') }}">
                                                 <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-simple-primary" data-original-title="Edit Task">
                                                     <i class="fa fa-edit"></i>
                                                 </button>

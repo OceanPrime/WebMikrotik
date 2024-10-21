@@ -57,9 +57,11 @@
                                     <td>Remote</td>
                                     <td>
                                         <div class="form-button-action">
-                                            <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-simple-primary" data-original-title="Edit Task">
-                                                <i class="fa fa-edit"></i>
-                                            </button>
+                                            <a href="{{ route('secret.edit') }}">
+                                                <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-simple-primary" data-original-title="Edit Task">
+                                                    <i class="fa fa-edit"></i>
+                                                </button>
+                                            </a>
                                             <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-simple-danger" data-original-title="Remove">
                                                 <i class="fa fa-times"></i>
                                             </button>

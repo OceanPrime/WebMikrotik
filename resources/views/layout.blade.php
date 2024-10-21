@@ -36,7 +36,7 @@
                 <div class="sidebar-header">
                     <div class="d-flex justify-content-between">
                         <div class="logo">
-                            <a href="#"><img src="{{ asset('template') }}/images/logo/pix.png" alt="Logo" srcset="" width="150"></a>
+                            <a href="#"><img src="{{ asset('template') }}/images/logo/pix.png" alt="Logo" srcset="" width=""></a>
                         </div>
                         <div class="toggler">
                             <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -105,36 +105,36 @@
                             </a>
                             <ul class="submenu ">
                                 <li class="submenu-item ">
-                                    <a href="layout-default.html">Unpaid Invoice</a>
+                                    <a href="{{ route('ManajemenKeuangan.financeReport.index') }}">Unpaid Invoice</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="layout-vertical-1-column.html">Finance Report</a>
+                                    <a href="{{ route('ManajemenKeuangan.unpaidInvoice.index') }}">Finance Report</a>
                                 </li>
                             </ul>
                         </li>
 
                         <li class="sidebar-item">
-                            <a href="form-layout.html" class='sidebar-link'>
+                            <a href="{{ route('ManajemenUser.index') }}" class='sidebar-link'>
                                 <i class="fa-solid fa-users"></i>
                                 <span>Manajemen User</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item">
-                            <a href="form-layout.html" class='sidebar-link'>
+                            <a href="{{ route('waGateaway.index') }}" class='sidebar-link'>
                                 <i class="bi-solid bi-whatsapp"></i>
                                 <span>WA Gateaway</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item">
-                            <a href="form-layout.html" class='sidebar-link'>
+                            <a href="{{ route('promo.index') }}" class='sidebar-link'>
                                 <i class="bi-solid bi-percent"></i>
                                 <span>Promo</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="form-layout.html" class='sidebar-link'>
+                            <a href="{{ route('harga.index') }}" class='sidebar-link'>
                                 <i class="bi-solid bi-cart-plus-fill"></i>
                                 <span>Harga</span>
                             </a>
