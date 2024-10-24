@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\hargaController;
 use App\Http\Controllers\LoginController;
@@ -38,7 +39,7 @@ Route::get('/home', function(){
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin', [DashboardController::class, 'index'])->middleware('UserAkses:admin');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-
+    
 
     Route::get('/admin/server', [PPPoEController::class, 'index'])->name('server.index');
     Route::get('/admin/server/create', [PPPoEController::class, 'createServer'])->name('server.tambah');
@@ -71,9 +72,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/profileUser', [HotspotController::class, 'profilUser'])->name('profilUser.index');
     Route::get('/admin/profileUser/tambah', [HotspotController::class, 'createProfilUser'])->name('profilUser.tambah');
 
-    Route::get('/admin/manajemenUser', [ManajemenUserController::class, 'index'])->name('ManajemenUser.index');
+    Route::get('/admin/manajemenUser', [ManajemenUserController::class, 'index'])->name('admin.ManajemenUser.index');
     Route::get('/admin/manajemenUser/create', [ManajemenUserController::class, 'createUser'])->name('ManajemenUser.tambah');
-    Route::get('/admin/manajemenUser/edit', [ManajemenUserController::class, 'updateUser'])->name('ManajemenUser.edit');
+    Route::put('/admin/manajemenUser/{id}/edit', [ManajemenUserController::class, 'editUser'])->name('ManajemenUser.edit');
+    Route::delete('/admin/manajemenUser/{id}', [ManajemenUserController::class, 'destroy'])->name('ManajemenUser.destroy');
 
     Route::get('/admin/promo', [promoController::class, 'index'])->name('promo.index');
     Route::get('/admin/promo/create', [promoController::class, 'createPromo'])->name('promo.tambah');
@@ -89,9 +91,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/waGateaway', [waGateawayController::class, 'index'])->name('waGateaway.index');
 
     Route::get('/admin/user', [SessionController::class, 'user'])->middleware('UserAkses:user');
-    Route::get('/logout', [LoginController::class, 'logout']);
+    Route::get('/logout', [LoginController::class, 'logout'])->name('Auth.login');
 });
-
 
 
 

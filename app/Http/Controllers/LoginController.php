@@ -28,18 +28,18 @@ class LoginController extends Controller
         ];
         if(Auth::attempt($infologin)) {
             if(Auth::user()->role == 'admin'){
-                return redirect('admin');
+                return redirect('admin')->with('Success', 'Kamu berhasil Log in');
             } elseif (Auth::user()->role == 'user') {
                 return redirect('admin/user');
             } 
         } else {
-            return redirect('')->withErrors('Wrong Email and Password')->withInput();
+            return redirect()->route('login')->with('failed', 'Email dan Password salah');
         } 
     }
 
     function logout()
     {
         Auth::logout();
-        return redirect('');
+        return redirect()->route('login')->with('Success', 'Kamu berhasil Log Out');
     }
 }

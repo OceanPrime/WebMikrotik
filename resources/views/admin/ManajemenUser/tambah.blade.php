@@ -28,44 +28,45 @@
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                        <form class="form">
+                        <form class="form" action="{{ route('ManajemenUser.store') }}" method="POST">
+                            @csrf
                             <div class="row">
-                                <div class="col-md-6 col-12">
-                                    <div class="form-group">
-                                        <label for="first-name-column">Name</label>
-                                        <input type="text" id="first-name-column" class="form-control"
-                                            placeholder="First Name" name="fname-column">
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="first-name-column">Name</label>
+                                            <input type="text" id="first-name-column" class="form-control"
+                                                placeholder="First Name" name="name">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <div class="form-group">
-                                        <label for="last-name-column">Email</label>
-                                        <input type="text" id="last-name-column" class="form-control"
-                                            placeholder="Last Name" name="lname-column">
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="last-name-column">Email</label>
+                                            <input type="text" id="last-name-column" class="form-control"
+                                                placeholder="Last Name" name="email">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <div class="form-group">
-                                        <label for="city-column">Password</label>
-                                        <input type="text" id="city-column" class="form-control"
-                                            placeholder="City" name="city-column">
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="city-column">Password</label>
+                                            <input type="text" id="city-column" class="form-control"
+                                                placeholder="City" name="password">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <div class="form-group">
-                                        <label for="country-floating">Role</label>
-                                        <input type="text" id="country-floating" class="form-control"
-                                            name="country-floating" placeholder="Country">
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="country-floating">Role</label>
+                                            <input type="text" id="country-floating" class="form-control"
+                                                name="role" placeholder="Country">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-12 d-flex justify-content-start">
-                                    <button type="submit"
-                                        class="btn btn-primary me-1 mb-1">Submit</button>
-                                    <a href="">
-                                        <button type="reset"
-                                            class="btn btn-danger me-1 mb-1">Cancel</button>
-                                    </a>
-                                </div>
+                                    <div class="col-12 d-flex justify-content-start">
+                                        <button type="submit"
+                                            class="btn btn-primary me-1 mb-1">Submit</button>
+                                        <a href="">
+                                            <button type="reset"
+                                                class="btn btn-danger me-1 mb-1">Cancel</button>
+                                        </a>
+                                    </div>
                             </div>
                         </form>
                     </div>

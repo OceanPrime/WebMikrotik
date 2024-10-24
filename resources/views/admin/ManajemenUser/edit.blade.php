@@ -28,34 +28,36 @@
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                        <form class="form">
+                        <form class="form" action="{{ route('ManajemenUser.updateUser' , $data->id) }}" method="POST">
+                            @csrf
+                            @method('PUT')
                             <div class="row">
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="first-name-column">Name</label>
-                                        <input type="text" id="first-name-column" class="form-control"
-                                            placeholder="First Name" name="fname-column">
+                                        <input type="text" id="name" class="form-control"
+                                            placeholder="First Name" name="fname-column"  value="{{ $data->name }}">
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="last-name-column">Email</label>
-                                        <input type="text" id="last-name-column" class="form-control"
-                                            placeholder="Last Name" name="lname-column">
+                                        <input type="text" id="email" class="form-control"
+                                            placeholder="Last Name" name="lname-column"  value="{{ $data->email }}">
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="city-column">Password</label>
-                                        <input type="text" id="city-column" class="form-control"
-                                            placeholder="City" name="city-column">
+                                        <input type="text" id="password" class="form-control"
+                                            placeholder="City" name="city-column"  value="{{ $data->password }}">
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="country-floating">Role</label>
-                                        <input type="text" id="country-floating" class="form-control"
-                                            name="country-floating" placeholder="Country">
+                                        <input type="text" id="role" class="form-control"
+                                            name="country-floating" placeholder="Country"  value="{{ $data->role }}">
                                     </div>
                                 </div>
                                 <div class="col-12 d-flex justify-content-start">

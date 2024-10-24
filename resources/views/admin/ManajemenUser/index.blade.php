@@ -39,31 +39,37 @@
                                     <th>No</th>
                                     <th>Name</th>
                                     <th>Email</th>
-                                    <th>Password</th>
                                     <th>Role</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Raven</td>
-                                    <td>Raven@gmail.com</td>
-                                    <td>raven123</td>
-                                    <td>User</td>
-                                    <td>
-                                        <div class="form-button-action">
-                                            <a href="{{ route('ManajemenUser.edit') }}">
-                                                <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-simple-primary" data-original-title="Edit Task">
-                                                    <i class="fa fa-edit"></i>
-                                                </button>
-                                            </a>
-                                            <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-simple-danger" data-original-title="Remove">
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
+                                <?php $i = 1; ?>
+                                @foreach ($users as $user)
+                                    <tr>
+                                        <td>{{ $i }}</td>
+                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>{{ $user->role }}</td>
+                                        <td>
+                                            <div class="form-button-action">
+                                                <a href="{{ route('ManajemenUser.edit', $user) }}">
+                                                    <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-simple-primary" data-original-title="Edit Task">
+                                                        <i class="fa fa-edit"></i>
+                                                    </button>
+                                                </a>
+                                                <form onsubmit="return confirm('Yakin mau dihapus?')" action="{{ route('ManajemenUser.destroy', $user->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE') <!-- Method spoofing DELETE -->
+                                                    <button type="submit" name="submit" class="btn btn-link btn-simple-danger">
+                                                        <i class="fa fa-times"></i>
+                                                    </button>
+                                                </form>                                                
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <?php $i++; ?>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

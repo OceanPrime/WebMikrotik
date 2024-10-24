@@ -27,6 +27,14 @@
 	<link rel="stylesheet" href="{{ asset('template') }}/assits/css/atlantis.min.css">
 	<link href="{{ asset('template') }}/assits/styles.css" rel="stylesheet" />
 	<link href="{{ asset('template') }}/assits/prism.css" rel="stylesheet" /> --}}
+
+    <style>
+        img {
+            min-height: 100px;
+            width: 100%;
+            margin: auto;
+        }
+    </style>
 </head>
 
 <body>
@@ -141,7 +149,7 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a href="/logout" class='sidebar-link'>
+                            <a href="{{ route('Auth.login') }}" class='sidebar-link'>
                                 <i class="bi-solid bi-arrow-left-square-fill"></i>                                
                                 <span>Log Out</span>
                             </a>

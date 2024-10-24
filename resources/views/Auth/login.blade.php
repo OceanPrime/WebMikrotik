@@ -61,8 +61,22 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        
-    </script>
+
+    @if($message = Session::get('failed'))
+        <script>
+            Swal.fire('{{ $message }}');
+        </script>
+    @endif
+    @if($message = Session::get('Success'))
+        <script>
+           Swal.fire({
+            position: "center",
+            icon: "success",
+            title: '{{ $message }}',
+            showConfirmButton: false,
+            timer: 1500
+            });
+        </script>
+    @endif
 </body>
 </html>
