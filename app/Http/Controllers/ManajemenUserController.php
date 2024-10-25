@@ -44,10 +44,6 @@ class ManajemenUserController extends Controller
             'password' => bcrypt($payload['password']),
             'role' => $payload['role'],
         ]);
-
-        // return response()->json([
-        //     'message' => 'User created successfully',
-        // ], 201);
         return redirect()->route('admin.ManajemenUser.index')->with('success', 'Akun User Berhasil ditambahkan');
 
     }
@@ -55,7 +51,7 @@ class ManajemenUserController extends Controller
     public function editUser($id)
     {
         $data = User::findOrFail($id);
-        return view('admin.ManajemenUser.edit', compact('data'));
+        return view('admin.ManajemenUser.edit')->with('data', $data);
     }
 
     public function updateUser(Request $request, string $id)
@@ -82,12 +78,10 @@ class ManajemenUserController extends Controller
             'role' => $request->role,
         ];
         User::where('id', $id)->update($data);
-        return response()->json([
-            'message' => 'Akun User Berhasil Diupdate',
-        ], 201);
+        return redirect()->route('admin.ManajemenUser.index')->with('success', 'Akun User Berhasil diupdate');
     }
 
-    public function destroy(string $id)
+    public function destroy($id)
     {
         User::where('id', $id)->delete();
         return redirect()->route('admin.ManajemenUser.index')->with('success', 'Akun User Berhasil dihapus');

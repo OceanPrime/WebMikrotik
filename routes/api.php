@@ -21,7 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/admin/manajemenUser', [ManajemenUserController::class, 'index'])->name('ManajemenUser.index');
 Route::post('/admin/manajemenUser', [ManajemenUserController::class, 'store'])->name('ManajemenUser.store');
-Route::put('/admin/manajemenUser/{id}', [ManajemenUserController::class, 'updateUser'])->name('ManajemenUser.updateUser');
+
 
 
 

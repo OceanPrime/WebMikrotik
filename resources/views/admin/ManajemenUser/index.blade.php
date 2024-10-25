@@ -45,26 +45,26 @@
                             </thead>
                             <tbody>
                                 <?php $i = 1; ?>
-                                @foreach ($users as $user)
-                                    <tr>
+                                @foreach ($users as $item)
+                                    <tr> 
                                         <td>{{ $i }}</td>
-                                        <td>{{ $user->name }}</td>
-                                        <td>{{ $user->email }}</td>
-                                        <td>{{ $user->role }}</td>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->email }}</td>
+                                        <td>{{ $item->role }}</td>
                                         <td>
                                             <div class="form-button-action">
-                                                <a href="{{ route('ManajemenUser.edit', $user) }}">
+                                                <a href="{{ route('ManajemenUser.edit', $item->id) }}">
                                                     <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-simple-primary" data-original-title="Edit Task">
                                                         <i class="fa fa-edit"></i>
                                                     </button>
                                                 </a>
-                                                <form onsubmit="return confirm('Yakin mau dihapus?')" action="{{ route('ManajemenUser.destroy', $user->id) }}" method="POST">
+                                                <form onsubmit="return confirm('Yakin Mau dihapus')"  action="{{ route('ManajemenUser.destroy', $item->id)}}" method="POST">
                                                     @csrf
-                                                    @method('DELETE') <!-- Method spoofing DELETE -->
+                                                    @method('DELETE')
                                                     <button type="submit" name="submit" class="btn btn-link btn-simple-danger">
                                                         <i class="fa fa-times"></i>
                                                     </button>
-                                                </form>                                                
+                                                </form>                                        
                                             </div>
                                         </td>
                                     </tr>
@@ -77,5 +77,21 @@
             </div>
         </div>
     </div>
+    @if($message = Session::get('failed'))
+        <script>
+            Swal.fire('{{ $message }}');
+        </script>
+    @endif
+    @if($message = Session::get('Success'))
+        <script>
+           Swal.fire({
+            position: "center",
+            icon: "success",
+            title: '{{ $message }}',
+            showConfirmButton: false,
+            timer: 1500
+            });
+        </script>
+    @endif
 </section>
 @endsection

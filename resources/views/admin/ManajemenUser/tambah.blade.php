@@ -35,34 +35,34 @@
                                         <div class="form-group">
                                             <label for="first-name-column">Name</label>
                                             <input type="text" id="first-name-column" class="form-control"
-                                                placeholder="First Name" name="name">
+                                                placeholder="Your Name Boy..." name="name">
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="last-name-column">Email</label>
                                             <input type="text" id="last-name-column" class="form-control"
-                                                placeholder="Last Name" name="email">
+                                                placeholder="Your Email Boyy..." name="email">
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="city-column">Password</label>
                                             <input type="text" id="city-column" class="form-control"
-                                                placeholder="City" name="password">
+                                                placeholder="Your Password Boyy..." name="password">
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="country-floating">Role</label>
                                             <input type="text" id="country-floating" class="form-control"
-                                                name="role" placeholder="Country">
+                                                name="role" placeholder="">
                                         </div>
                                     </div>
                                     <div class="col-12 d-flex justify-content-start">
                                         <button type="submit"
                                             class="btn btn-primary me-1 mb-1">Submit</button>
-                                        <a href="">
+                                        <a href="{{ route('ManajemenUser.index') }}">
                                             <button type="reset"
                                                 class="btn btn-danger me-1 mb-1">Cancel</button>
                                         </a>
