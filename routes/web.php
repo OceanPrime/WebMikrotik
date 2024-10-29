@@ -76,7 +76,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/manajemenUser/create', [ManajemenUserController::class, 'createUser'])->name('ManajemenUser.tambah');
     Route::get('/admin/manajemenUser/{id}/edit', [ManajemenUserController::class, 'editUser'])->name('ManajemenUser.edit');
     Route::put('/admin/manajemenUser/{id}', [ManajemenUserController::class, 'updateUser'])->name('ManajemenUser.updateUser');
-    Route::delete('/admin/manajemenUser/{id}', [ManajemenUserController::class, 'destroy'])->name('ManajemenUser.destroy');
+    Route::get('/admin/manajemenUser/{id}', [ManajemenUserController::class, 'destroy'])->name('ManajemenUser.destroy');
 
     Route::get('/admin/promo', [promoController::class, 'index'])->name('promo.index');
     Route::get('/admin/promo/create', [promoController::class, 'createPromo'])->name('promo.tambah');
@@ -91,7 +91,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/admin/waGateaway', [waGateawayController::class, 'index'])->name('waGateaway.index');
 
-    Route::get('/admin/user', [SessionController::class, 'user'])->middleware('UserAkses:user');
+    // Route::get('/admin/user', [SessionController::class, 'user'])->middleware('UserAkses:user');
     Route::get('/logout', [LoginController::class, 'logout'])->name('Auth.login');
 });
 

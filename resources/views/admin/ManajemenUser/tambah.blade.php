@@ -28,35 +28,65 @@
                 </div>
                 <div class="card-content">
                     <div class="card-body">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $item)
+                                        <li>{{ $item }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>                  
+                        @endif
                         <form class="form" action="{{ route('ManajemenUser.store') }}" method="POST">
                             @csrf
                             <div class="row">
                                     <div class="col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label for="first-name-column">Name</label>
-                                            <input type="text" id="first-name-column" class="form-control"
-                                                placeholder="Your Name Boy..." name="name">
+                                        <div class="form-group has-icon-left">
+                                            <label for="first-name-icon">Username</label>
+                                            <div class="position-relative">
+                                                <input type="text" class="form-control"
+                                                    placeholder="Username..."
+                                                    id="name" name="name">
+                                                <div class="form-control-icon" name="name">
+                                                    <i class="bi bi-person"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group has-icon-left">
+                                            <label for="email">Email</label>
+                                            <div class="position-relative">
+                                                <input type="text" class="form-control"
+                                                    placeholder="Email..." id="email" name="email" value="{{ Session::get('email') }}">
+                                                <div class="form-control-icon">
+                                                    <i class="bi bi-envelope"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group has-icon-left">
+                                            <label for="password">Password</label>
+                                            <div class="position-relative">
+                                                <input type="password" class="form-control"
+                                                    placeholder="Password..." id="password" name="password">
+                                                <div class="form-control-icon">
+                                                    <i class="bi bi-lock"></i>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <label for="last-name-column">Email</label>
-                                            <input type="text" id="last-name-column" class="form-control"
-                                                placeholder="Your Email Boyy..." name="email">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label for="city-column">Password</label>
-                                            <input type="text" id="city-column" class="form-control"
-                                                placeholder="Your Password Boyy..." name="password">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label for="country-floating">Role</label>
-                                            <input type="text" id="country-floating" class="form-control"
-                                                name="role" placeholder="">
+                                            <label for="role">Role</label>
+                                            <fieldset class="form-group">
+                                                <select class="form-select" id="role" name="role">
+                                                    <option>Admin</option>
+                                                    <option>User</option>
+                                                </select>
+                                            </fieldset>
                                         </div>
                                     </div>
                                     <div class="col-12 d-flex justify-content-start">

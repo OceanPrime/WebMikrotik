@@ -30,10 +30,15 @@ class ManajemenUserController extends Controller
             'password' => 'required|min:8',
             'role' => 'required',
 
+        ], [
+            'name.required' => 'Nama tidak boleh kosong',
+            'email.required' => 'Email tidak boleh kosong',
+            'password.required' => 'Password tidak valid',
+            'role.required' => 'role tidak boleh kosong',
         ]);
 
         if ($validator->fails()) {
-            return response()->json($validator->messages())->setStatusCode(422);        
+            redirect()->route('ManajemenUser.store')->with('failed', 'Akun User Gagal Ditambahkan');       
         }
 
         $payload = $validator->validated();
@@ -59,27 +64,36 @@ class ManajemenUserController extends Controller
         $request->validate(
             [
                 'name' => 'required',
-                'email' => 'required',
-                'password' => 'required',
-                'role' => 'required'
-            ],[
+                'email' => 'required|email|unique:users,email,' . $id,
+                'password' => 'nullable|min:8',
+                'role' => 'required|in:admin,user' // Sesuaikan dengan role yang ada
+            ],
+            [
                 'name.required' => 'Nama Wajib Diisi',
                 'email.required' => 'Email Wajib Diisi',
-                'password.required' => 'Password Wajib Diisi',
-                'role.required' => 'Email Wajib Diisi',
-
+                'email.email' => 'Format Email Tidak Valid',
+                'email.unique' => 'Email Sudah Terdaftar',
+                'password.min' => 'Password Minimal 8 Karakter',
+                'role.required' => 'Role Wajib Diisi',
+                'role.in' => 'Role tidak valid',
             ]
         );
-
+    
         $data = [
             'name' => $request->name,
             'email' => $request->email,
-            'password' => bcrypt($request->password),
             'role' => $request->role,
         ];
+    
+        // Jika password diisi, lakukan hash dan masukkan ke array data
+        if ($request->filled('password')) {
+            $data['password'] = bcrypt($request->password);
+        }
+    
         User::where('id', $id)->update($data);
         return redirect()->route('admin.ManajemenUser.index')->with('success', 'Akun User Berhasil diupdate');
     }
+            
 
     public function destroy($id)
     {

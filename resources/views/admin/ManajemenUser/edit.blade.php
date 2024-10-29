@@ -33,24 +33,39 @@
                             @method('PUT')
                             <div class="row">
                                 <div class="col-md-6 col-12">
-                                    <div class="form-group">
-                                        <label for="first-name-column">Name</label>
-                                        <input type="text" id="name" class="form-control"
-                                         name="name"  value="{{ $data->name }}">
+                                    <div class="form-group has-icon-left">
+                                        <label for="first-name-icon">Username</label>
+                                        <div class="position-relative">
+                                            <input type="text" class="form-control"
+                                                id="name" name="name" value="{{ $data->name }}">
+                                            <div class="form-control-icon" name="name">
+                                                <i class="bi bi-person"></i>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
-                                    <div class="form-group">
-                                        <label for="last-name-column">Email</label>
-                                        <input type="text" id="email" class="form-control"
-                                         name="email"  value="{{ $data->email }}">
+                                    <div class="form-group has-icon-left">
+                                        <label for="email">Email</label>
+                                        <div class="position-relative">
+                                            <input type="text" class="form-control"
+                                                 id="email" name="email" value="{{$data->email}}">
+                                            <div class="form-control-icon">
+                                                <i class="bi bi-envelope"></i>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
-                                    <div class="form-group">
-                                        <label for="city-column">Password</label>
-                                        <input type="text" id="password" class="form-control"
-                                          name="password"  value="">
+                                    <div class="form-group has-icon-left">
+                                        <label for="password">Password</label>
+                                        <div class="position-relative">
+                                            <input type="password" class="form-control"
+                                                placeholder="Password..." id="password" name="password">
+                                            <div class="form-control-icon">
+                                                <i class="bi bi-lock"></i>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
@@ -63,7 +78,7 @@
                                 <div class="col-12 d-flex justify-content-start">
                                     <button type="submit"
                                         class="btn btn-primary me-1 mb-1">Update</button>
-                                    <a href="{{ route('admin.ManajemenUser.index') }}">
+                                    <a href="{{ route('admin.dashboard') }}">
                                         <button type="reset"
                                             class="btn btn-danger me-1 mb-1">Cancel</button>
                                     </a>

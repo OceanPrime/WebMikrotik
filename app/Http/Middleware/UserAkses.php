@@ -19,6 +19,6 @@ class UserAkses
             return $next($request);
         }
         
-        return response()->json(['Anda Tak boleh Akses Halaman INI Maaaa,,,lanicao maaa']);
+        return response()->json(['message' => 'Unauthorized. Only users not Akses.'], 403);
     }
 }

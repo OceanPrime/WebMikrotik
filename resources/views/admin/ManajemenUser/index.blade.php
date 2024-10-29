@@ -58,7 +58,7 @@
                                                         <i class="fa fa-edit"></i>
                                                     </button>
                                                 </a>
-                                                <form onsubmit="return confirm('Yakin Mau dihapus')"  action="{{ route('ManajemenUser.destroy', $item->id)}}" method="POST">
+                                                <form onsubmit="return confirm('Yakin Mau dihapus')"  action="{{ route('ManajemenUser.destroy', $item->id)}}" method="GET">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" name="submit" class="btn btn-link btn-simple-danger">
@@ -77,21 +77,25 @@
             </div>
         </div>
     </div>
-    @if($message = Session::get('failed'))
-        <script>
-            Swal.fire('{{ $message }}');
-        </script>
-    @endif
-    @if($message = Session::get('Success'))
-        <script>
-           Swal.fire({
-            position: "center",
-            icon: "success",
-            title: '{{ $message }}',
-            showConfirmButton: false,
-            timer: 1500
-            });
-        </script>
-    @endif
+    <div id="chart">
+        @if($message = Session::get('failed'))
+            <script>
+                Swal.fire('{{ $message }}');
+            </script>
+        @endif
+        @if($message = Session::get('success'))
+            <script>
+                Swal.fire( '{{ $message }}'
+                { 
+                position: "top-end",
+                icon: "success",
+                title: "{{ $message }}",
+                showConfirmButton: false,
+                timer: 1500
+                });
+            </script>
+        @endif
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </section>
 @endsection
