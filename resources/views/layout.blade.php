@@ -21,13 +21,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     {{-- atlantis config  --}}
 
 	{{-- <link rel="stylesheet" href="{{ asset('template') }}/assits/css/bootstrap.min.css">
 	<link rel="stylesheet" href="{{ asset('template') }}/assits/css/atlantis.min.css">
 	<link href="{{ asset('template') }}/assits/styles.css" rel="stylesheet" />
 	<link href="{{ asset('template') }}/assits/prism.css" rel="stylesheet" /> --}}
-
     <style>
         img {
             min-height: 100px;
@@ -38,7 +40,6 @@
 </head>
 
 <body>
-    <div id="app">
         <div id="sidebar" class="active">
             <div class="sidebar-wrapper active">
                 <div class="sidebar-header">
@@ -168,6 +169,17 @@
 
 {{-- content --}}
         <div class="content">
+            <div id="app">
+                @if (isset($errors) && $errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $items)
+                                <li>{{ $items }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+            </div>
             @yield('konten')
         </div>
 {{-- End Content --}}
@@ -190,11 +202,14 @@
     <script src="{{ asset('template') }}/assets/vendors/apexcharts/apexcharts.js"></script>
     <script src="{{ asset('template') }}/assets/js/pages/dashboard.js"></script>
     <script src="{{ asset('template') }}/assets/vendors/simple-datatables/simple-datatables.js"></script>
+
+    <script src="{{ asset('template') }}/assets/js/extensions/sweetalert2.js"></script>
+    <script src="{{ asset('template') }}/assets/vendors/sweetalert2/sweetalert2.all.min.js"></script>
     <script>
         // Simple Datatable
         let table1 = document.querySelector('#table1');
         let dataTable = new simpleDatatables.DataTable(table1);
     </script>
-    <script src="{{ asset('template') }}/assets/js/main.js"></script>
+    <script src="{{ asset('template') }}/assets/js/main.js"></script>       
 </body>
 </html>

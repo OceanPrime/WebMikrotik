@@ -37,8 +37,11 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
+                                    <th>Foto</th>
                                     <th>Name</th>
                                     <th>Email</th>
+                                    <th>No Handphone</th>
+                                    <th>Alamat</th>
                                     <th>Role</th>
                                     <th>Action</th>
                                 </tr>
@@ -48,8 +51,17 @@
                                 @foreach ($users as $item)
                                     <tr> 
                                         <td>{{ $i }}</td>
+                                        <td>
+                                            @if($item->gambar)
+                                                <img style="max-width:100px;max-height:100px" src="{{ asset('gambar/' . $item->gambar) }}" alt="Profile Picture">
+                                            @else
+                                                <span>No Image</span>
+                                            @endif
+                                        </td>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->email }}</td>
+                                        <td>{{ $item->no_telepon }}</td>
+                                        <td>{{ $item->alamat }}</td>
                                         <td>{{ $item->role }}</td>
                                         <td>
                                             <div class="form-button-action">
@@ -58,7 +70,7 @@
                                                         <i class="fa fa-edit"></i>
                                                     </button>
                                                 </a>
-                                                <form onsubmit="return confirm('Yakin Mau dihapus')"  action="{{ route('ManajemenUser.destroy', $item->id)}}" method="GET">
+                                                <form onsubmit="return confirm('Are you sure you want to delete this data?')"  action="{{ route('ManajemenUser.destroy', $item->id)}}" class="d-inline" method="GET">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" name="submit" class="btn btn-link btn-simple-danger">
@@ -77,25 +89,18 @@
             </div>
         </div>
     </div>
-    <div id="chart">
-        @if($message = Session::get('failed'))
-            <script>
-                Swal.fire('{{ $message }}');
-            </script>
-        @endif
-        @if($message = Session::get('success'))
-            <script>
-                Swal.fire( '{{ $message }}'
-                { 
-                position: "top-end",
-                icon: "success",
-                title: "{{ $message }}",
-                showConfirmButton: false,
-                timer: 1500
-                });
-            </script>
-        @endif
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </section>
+@if(session('success'))
+    <script>
+        Swal.fire(
+        {
+            title: 'Success!',
+            icon: "success",
+            text: "{{ session('success') }}",
+            showConfirmButton: false,
+            timer: 1500
+        });
+    </script>
+@endif
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @endsection

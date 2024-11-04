@@ -68,8 +68,9 @@
                                 <div class="col-12 d-flex justify-content-start">
                                     <button type="submit"
                                         class="btn btn-primary me-1 mb-1">Submit</button>
-                                    <button type="reset"
-                                        class="btn btn-danger me-1 mb-1">Cancel</button>
+                                        <a href="{{ route('server.index') }}" class="btn btn-danger me-1 mb-1">
+                                            Cancel
+                                        </a>
                                 </div>
                             </div>
                         </form>

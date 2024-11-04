@@ -18,13 +18,17 @@ class UserSeeder extends Seeder
                 'name'=>'raven',
                 'email'=>'raven@gmail.com',
                 'role'=>'admin',
+                'no_telepon'=>'082187906552',
                 'password'=>bcrypt('raven123'),
+                'alamat'=>'cikampek',
             ],
             [
                 'name'=>'prime',
                 'email'=>'prime@gmail.com',
                 'role'=>'user',
+                'no_telepon'=>'082187906112',
                 'password'=>bcrypt('prime123'),
+                'alamat'=>'bandung',
             ]
         ];
 
