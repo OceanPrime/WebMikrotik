@@ -24,12 +24,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+
     {{-- atlantis config  --}}
 
 	{{-- <link rel="stylesheet" href="{{ asset('template') }}/assits/css/bootstrap.min.css">
 	<link rel="stylesheet" href="{{ asset('template') }}/assits/css/atlantis.min.css">
 	<link href="{{ asset('template') }}/assits/styles.css" rel="stylesheet" />
 	<link href="{{ asset('template') }}/assits/prism.css" rel="stylesheet" /> --}}
+    
     <style>
         img {
             min-height: 100px;
@@ -120,6 +122,13 @@
                                     <a href="{{ route('ManajemenKeuangan.unpaidInvoice.index') }}">Finance Report</a>
                                 </li>
                             </ul>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="{{ route('message.index') }}" class='sidebar-link'>
+                                <i class="fa-solid fa-envelope"></i>
+                                <span>Message</span>
+                            </a>
                         </li>
 
                         <li class="sidebar-item">

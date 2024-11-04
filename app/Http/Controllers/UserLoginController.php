@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserLoginController extends Controller
 {
@@ -53,4 +54,60 @@ class UserLoginController extends Controller
         Auth::logout();
         return response()->json(['message' => 'Logged out successfully'], 200);
     }
+
+    public function verifyPassword(Request $request)
+    {
+        // Pastikan user terotentikasi
+        $user = auth()->user();
+
+        if (!$user) {
+            return response()->json(['isValid' => false, 'message' => 'User not authenticated'], 401);
+        }
+
+        $password = $request->input('password');
+
+        // Verifikasi password
+        if (Hash::check($password, $user->password)) {
+            return response()->json(['isValid' => true]);
+        } else {
+            return response()->json(['isValid' => false]);
+        }
+    }
+
+    public function editProfile()
+{
+    $user = Auth::user(); // Ambil user yang sedang login
+    return response()->json($user); // Kembalikan data pengguna sebagai respons JSON
+}
+
+public function updateProfile(Request $request)
+{
+    $request->validate(
+        [
+            'name' => 'required|max:255',
+            'password' => 'nullable|min:8', // Password bersifat opsional
+        ],
+        [
+            'name.required' => 'Nama Wajib Diisi',
+            'password.min' => 'Password Minimal 8 Karakter',
+        ]
+    );
+
+    $user = Auth::user(); // Ambil user yang sedang login
+
+    $data = [
+        'name' => $request->name,
+    ];
+
+    // Jika password diisi, lakukan hash dan masukkan ke array data
+    if ($request->filled('password')) {
+        $data['password'] = bcrypt($request->password);
+    }
+
+    // Update data pengguna
+    $user->update($data);
+
+    return response()->json(['message' => 'Profile updated successfully'], 200);
+}
+
 }

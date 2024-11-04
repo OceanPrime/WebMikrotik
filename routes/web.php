@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PPPoEController;
 use App\Http\Controllers\promoController;
 use App\Http\Controllers\HotspotController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\KeuanganController;
 use App\Http\Controllers\DashboardController;
@@ -90,6 +91,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/ManajemenKeuangan/financeReport', [KeuanganController::class, 'unpaidInvoice'])->name('ManajemenKeuangan.unpaidInvoice.index');
 
     Route::get('/admin/waGateaway', [waGateawayController::class, 'index'])->name('waGateaway.index');
+
+    Route::get('/admin/messages', [MessageController::class, 'index'])->name('message.index');
+    Route::get('/admin/messages/create', [MessageController::class, 'create'])->name('message.create');
+    Route::post('/admin/messages', [MessageController::class, 'store'])->name('message.store');
+    Route::get('/admin/messages/{id}/edit', [MessageController::class, 'edit'])->name('message.edit');
+    Route::put('/admin/messages/{id}', [MessageController::class, 'update'])->name('message.update');
+    Route::delete('/admin/messages/{id}', [MessageController::class, 'destroy'])->name('message.destroy');
+    Route::post('/admin/messages/{id}/send', [MessageController::class, 'send'])->name('message.send');
 
     // Route::get('/admin/user', [SessionController::class, 'user'])->middleware('UserAkses:user');
     Route::get('/logout', [LoginController::class, 'logout'])->name('Auth.login');
