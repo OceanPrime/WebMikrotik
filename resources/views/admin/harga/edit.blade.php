@@ -5,14 +5,14 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Data Profiles PPPoE</h3>
+                <h3>Data Harga</h3>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i></a></li>
-                        <li class="breadcrumb-item active" aria-current="page">PPPoE</li>
-                        <li class="breadcrumb-item active" aria-current="page">Update Profiles</li>
+                        <li class="breadcrumb-item active" aria-current="page">Harga</li>
+                        <li class="breadcrumb-item active" aria-current="page">Edit Harga</li>
                     </ol>
                 </nav>
             </div>
@@ -24,45 +24,36 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Update Profiles</h4>
+                    <h4 class="card-title">Edit Harga</h4>
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                        <form class="form">
+                        <form action="{{ route('harga.update', $data->id) }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
                             <div class="row">
                                 <div class="col-md-6 col-12">
-                                    <div class="form-group">
-                                        <label for="first-name-column">Name</label>
-                                        <input type="text" id="first-name-column" class="form-control"
-                                            placeholder="First Name" name="fname-column">
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <div class="mb-3">
+                                                <label for="gambar_promosi" class="form-label">Upload Foto</label>
+                                                <input class="form-control" type="file" id="gambar_promosi" name="gambar_promosi">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
-                                        <label for="last-name-column">Local Address</label>
-                                        <input type="text" id="last-name-column" class="form-control"
-                                            placeholder="Last Name" name="lname-column">
+                                        <label for="harga">Harga</label>
+                                        <input type="text" id="harga" class="form-control"
+                                            placeholder="Last Name" name="harga">
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
-                                        <label for="city-column">Remote Address</label>
-                                        <input type="text" id="city-column" class="form-control"
-                                            placeholder="City" name="city-column">
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <div class="form-group">
-                                        <label for="country-floating">Rate Limit (rx/tx)</label>
-                                        <input type="text" id="country-floating" class="form-control"
-                                            name="country-floating" placeholder="Country">
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <div class="form-group">
-                                        <label for="company-column">Only One</label>
-                                        <input type="text" id="company-column" class="form-control"
-                                            name="company-column" placeholder="Company">
+                                        <label for="deskripsi">Deskripsi</label>
+                                        <input type="text" id="deskripsi" class="form-control"
+                                            placeholder="Last Name" name="deskripsi">
                                     </div>
                                 </div>
                                 <div class="col-12 d-flex justify-content-start">

@@ -81,11 +81,17 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/admin/promo', [promoController::class, 'index'])->name('promo.index');
     Route::get('/admin/promo/create', [promoController::class, 'createPromo'])->name('promo.tambah');
-    Route::get('/admin/promo/edit', [promoController::class, 'updatePromo'])->name('promo.edit');
+    Route::post('/admin/promo/store', [promoController::class, 'store'])->name('promo.store');
+    Route::get('/admin/promo/{id}/edit', [promoController::class, 'updatePromo'])->name('promo.edit');
+    Route::put('/admin/promo/{id}', [promoController::class, 'update'])->name('promo.update');
+    Route::get('/admin/promo/{id}', [promoController::class, 'destroy'])->name('promo.destroy');
 
     Route::get('/admin/harga', [hargaController::class, 'index'])->name('harga.index');
     Route::get('/admin/harga/create', [hargaController::class, 'createHarga'])->name('harga.tambah');
-    Route::get('/admin/harga/edit', [hargaController::class, 'updateHarga'])->name('harga.edit');
+    Route::post('/admin/harga/store', [hargaController::class, 'store'])->name('harga.store');
+    Route::get('/admin/harga/{id}/edit', [hargaController::class, 'updateHarga'])->name('harga.edit');
+    Route::put('/admin/harga/{id}', [hargaController::class, 'update'])->name('harga.update');
+    Route::get('/admin/harga/{id}', [hargaController::class, 'destroy'])->name('harga.destroy');
 
     Route::get('/admin/ManajemenKeuangan', [KeuanganController::class, 'index'])->name('ManajemenKeuangan.financeReport.index');
     Route::get('/admin/ManajemenKeuangan/financeReport', [KeuanganController::class, 'unpaidInvoice'])->name('ManajemenKeuangan.unpaidInvoice.index');
