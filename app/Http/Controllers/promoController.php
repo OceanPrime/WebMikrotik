@@ -46,6 +46,7 @@ class promoController extends Controller
 
         $data = promosi::create([
             'deskripsi' => $request->deskripsi,
+            'gambar_promosi' => $gambar_baru
         ]);
         
         return redirect()->route('promo.index')->with('success', 'data berhasil ditambahkan'); 

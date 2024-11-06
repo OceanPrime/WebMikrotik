@@ -36,8 +36,8 @@
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <div class="mb-3">
-                                                <label for="gambar_promosi" class="form-label">Upload Foto</label>
-                                                <input class="form-control" type="file" id="gambar_promosi" name="gambar_promosi">
+                                                <label for="gambar_harga" class="form-label">Upload Foto</label>
+                                                <input class="form-control" type="file" id="gambar_harga" name="gambar_harga">
                                             </div>
                                         </div>
                                     </div>
@@ -46,21 +46,22 @@
                                     <div class="form-group">
                                         <label for="harga">Harga</label>
                                         <input type="text" id="harga" class="form-control"
-                                            placeholder="Last Name" name="harga">
+                                            placeholder="Harga..." name="harga" value="{{ $data->harga }}">
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
-                                        <label for="deskripsi">Deskripsi</label>
-                                        <input type="text" id="deskripsi" class="form-control"
-                                            placeholder="Last Name" name="deskripsi">
+                                        <label for="deskripsi_harga">Deskripsi</label>
+                                        <input type="text" id="deskripsi_harga" class="form-control"
+                                            placeholder="Deskripsi...." name="deskripsi_harga" value="{{ $data->gambar }}">
                                     </div>
                                 </div>
                                 <div class="col-12 d-flex justify-content-start">
                                     <button type="submit"
                                         class="btn btn-primary me-1 mb-1">Update</button>
-                                    <button type="reset"
-                                        class="btn btn-danger me-1 mb-1">Cancel</button>
+                                        <a href="{{ route('harga.index') }}" class="btn btn-danger me-1 mb-1">
+                                            Cancel
+                                        </a>
                                 </div>
                             </div>
                         </form>

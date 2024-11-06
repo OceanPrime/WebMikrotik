@@ -45,14 +45,15 @@
                                     <div class="form-group">
                                         <label for="deskripsi">Deskripsi</label>
                                         <input type="text" id="deskripsi" class="form-control"
-                                            placeholder="Last Name" name="deskripsi">
+                                            placeholder="Deskripsi..." name="deskripsi">
                                     </div>
                                 </div>
                                 <div class="col-12 d-flex justify-content-start">
                                     <button type="submit"
                                         class="btn btn-primary me-1 mb-1">Submit</button>
-                                    <button type="reset"
-                                        class="btn btn-danger me-1 mb-1">Cancel</button>
+                                        <a href="{{ route('promo.index') }}" class="btn btn-danger me-1 mb-1">
+                                            Cancel
+                                        </a>
                                 </div>
                             </div>
                         </form>

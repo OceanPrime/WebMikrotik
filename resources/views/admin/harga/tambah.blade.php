@@ -45,21 +45,22 @@
                                     <div class="form-group">
                                         <label for="harga">Harga</label>
                                         <input type="text" id="harga" class="form-control"
-                                            placeholder="Last Name" name="harga">
+                                            placeholder="Harga...." name="harga">
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="deskripsi_harga">Deskripsi</label>
                                         <input type="text" id="deskripsi_harga" class="form-control"
-                                            placeholder="City" name="deskripsi_harga">
+                                            placeholder="Deskripsi..." name="deskripsi_harga">
                                     </div>
                                 </div>
                                 <div class="col-12 d-flex justify-content-start">
                                     <button type="submit"
                                         class="btn btn-primary me-1 mb-1">Submit</button>
-                                    <button type="reset"
-                                        class="btn btn-danger me-1 mb-1">Cancel</button>
+                                        <a href="{{ route('harga.index') }}" class="btn btn-danger me-1 mb-1">
+                                            Cancel
+                                        </a>
                                 </div>
                             </div>
                         </form>

@@ -49,6 +49,7 @@ class hargaController extends Controller
         $data = harga::create([
             'deskripsi_harga' => $request->deskripsi_harga,
             'harga' => $request->harga,
+            'gambar_harga' => $gambar_baru
         ]);
 
         return redirect()->route('harga.index')->with('success', 'data berhasil ditambahkan'); 
@@ -65,21 +66,21 @@ class hargaController extends Controller
         $request->validate(
             [
                 'gambar_harga' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                'deskripsi' => 'required',
+                'deskripsi_harga' => 'required',
                 'harga' => 'required'
             ],[
                 'gambar_harga.image' => 'File harus berupa gambar',
                 'gambar_harga.mimes' => 'Gambar harus berupa file jpeg, png,
                 jpg, atau gif',
                 'gambar_harga.max' => 'Ukuran gambar maksimal 2MB',
-                'deskripsi.required' => 'Deskripsi harus diisi',
+                'deskripsi_harga.required' => 'Deskripsi harus diisi',
                 'harga.required' => 'Harga harus diisi',
             ]
         );
 
         $gambar_baru = null;
         $data = [
-            'deskripsi' => $request->deskripsi,
+            'deskripsi_harga' => $request->deskripsi_harga,
             'harga' => $request->harga,
         ];  
 

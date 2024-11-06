@@ -21,7 +21,7 @@
     <div class="card">
         <div class="card-body">
             <div class="card-header">
-                <h4 class="card-title"></h4>
+                <h4 class="card-title">Data Harga</h4>
                 <a href="{{ route('harga.tambah') }}">
                     <button class="btn btn-primary rounded-pill">
                         <i class="fa fa-plus"></i>
@@ -76,4 +76,17 @@
         </div>
     </div>
 </section>
+@if(session('success'))
+    <script>
+        Swal.fire(
+        {
+            title: 'Success!',
+            icon: "success",
+            text: "{{ session('success') }}",
+            showConfirmButton: false,
+            timer: 1500
+        });
+    </script>
+@endif
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @endsection

@@ -18,9 +18,9 @@
     </div>
 </div>
 <section class="section">
-    <div class="row" id="table-striped">
-        <div class="col-12">
-            <div class="card">
+    <div class="card">
+        <div class="row" id="table-striped">
+            <div class="col-12">
                 <div class="card-content">          
                     <div class="card-header">
                         <h4 class="card-title">Akun User</h4>
