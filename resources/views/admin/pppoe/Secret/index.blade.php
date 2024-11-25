@@ -42,22 +42,34 @@
                                     <th>Name</th>
                                     <th>Password</th>
                                     <th>Service</th>
-                                    <th>Profile</th>
-                                    <th>Last Logout</th>
+                                    <th>Local Address</th>
+                                    <th>Remote Address</th>
+                                    <th>Status</th>
+                                    <th>Comment</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($secret as $no => $item)
                                 <tr>
-                                    <td class="text-bold-500">1</td>
-                                    <td class="text-bold-500">Michael Right</td>
-                                    <td>$15/hr</td>
-                                    <td class="text-bold-500">UI/UX</td>
-                                    <td>Remote</td>
-                                    <td>Remote</td>
+                                    <div hidden>{{ $id = str_replace('*', '', $item['.id'])  }}</div>
+                                    <td>{{ $no + 1 }}</td>
+                                    <td>{{ $item['name'] ?? '-' }}</td>
+                                    <td>{{ $item['password'] ?? '-' }}</td>
+                                    <td>{{ $item['service'] ?? '-'}}</td>
+                                    <td>{{ $item['local-address'] ?? '-'}}</td>
+                                    <td>{{ $item['remote-address'] ?? '-'}}</td>
+                                    <td>
+                                        @if ($item['disabled'] == "true")
+                                        <span class="badge bg-danger">Deactive</span>
+                                        @else
+                                        <span class="badge bg-success">Active</span>
+                                        @endif
+                                    </td>
+                                    <td>{{ $item['comment'] ?? ''}}</td>
                                     <td>
                                         <div class="form-button-action">
-                                            <a href="{{ route('secret.edit') }}">
+                                            <a href="{{ route('secret.edit', $id) }}">
                                                 <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-simple-primary" data-original-title="Edit Task">
                                                     <i class="fa fa-edit"></i>
                                                 </button>
@@ -68,6 +80,7 @@
                                         </div>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

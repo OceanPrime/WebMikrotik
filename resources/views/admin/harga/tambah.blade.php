@@ -11,8 +11,8 @@
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i></a></li>
-                        <li class="breadcrumb-item active" aria-current="page">PPPoE</li>
-                        <li class="breadcrumb-item active" aria-current="page">Update Profiles</li>
+                        <li class="breadcrumb-item active" aria-current="page">Harga</li>
+                        <li class="breadcrumb-item active" aria-current="page">Tambah Harga</li>
                     </ol>
                 </nav>
             </div>

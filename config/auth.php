@@ -40,7 +40,12 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'mikrotik' => [
+            'driver' => 'mikrotik',
+            'provider' => 'null',
+        ],
     ],
+
 
     /*
     |--------------------------------------------------------------------------

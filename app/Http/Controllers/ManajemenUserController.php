@@ -26,13 +26,6 @@ class ManajemenUserController extends Controller
 
     public function store(Request $request)
     {
-        Session::flash('name', $request->name);
-        Session::flash('email', $request->email);
-        Session::flash('password', $request->password);
-        Session::flash('role', $request->role);
-        Session::flash('no_telepon', $request->no_telepon);
-        Session::flash('alamat', $request->alamat);
-        Session::flash('gambar', $request->gambar);
         $validator = Validator::make($request->all(), [  
             'name' => 'required|max:255',
             'email' => 'required|email|unique:users',

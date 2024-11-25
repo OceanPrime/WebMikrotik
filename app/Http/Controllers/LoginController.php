@@ -14,27 +14,42 @@ class LoginController extends Controller
 
     function login(Request $request)
     {
-        $request->validate([
-            'email' => 'required',
-            'password' => 'required'
-        ], [
-            'email.required' => 'Email Required ',
-            'password.required' => 'Password Required'
-        ]); 
+        $credentials = $request->only('ip', 'name', 'pass');
+        // session()->put('user', [
+        //     'ip' => $credentials['ip'],
+        //     'name' => $credentials['name'],
+        //     'pass' => $credentials['pass'],
+        // ]);
 
-        $infologin = [
-            'email' => $request->email,
-            'password' => $request->password,
+        $request->validate([
+            'ip' => 'required',
+            'name' => 'required',
+            'pass' => 'required',
+        ],[
+            'ip.required' => 'IP Address is required',
+            'name.required' => 'Username is required',
+            'pass.required' => 'Password is required',
+        ]);
+        
+        if (Auth::guard('mikrotik')->validate($credentials)) {
+            return redirect()->route('admin.dashboard');
+        }
+
+        return back()->withErrors(['message' => 'Login gagal, Cek IP, Username, dan password']);
+        
+        $ip = $request->post('ip'); 
+        $name = $request->post('name');
+        $pass = $request->post('pass');
+
+        $data = [
+            'ip' => $ip,
+            'name' => $name,
+            'pass' => $pass,
         ];
-        if(Auth::attempt($infologin)) {
-            if(Auth::user()->role == 'admin'){
-                return redirect('admin')->with('Success', 'Kamu berhasil Log in');
-            } elseif (Auth::user()->role == 'user') {
-                return redirect()->route('login')->with('failed', 'Akun User Tidak Bisa Diakses Disini');
-            } 
-        } else {
-            return redirect()->route('login')->with('failed', 'Email dan Password salah');
-        } 
+
+        // dd($data); 
+
+        $request->session()->put($data);
     }
 
     function logout()
